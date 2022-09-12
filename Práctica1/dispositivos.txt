@@ -1,1 +1,2 @@
 localhost, comunidadASRWin, 161
+192.168.1.75, comunidadASRLub, 161
