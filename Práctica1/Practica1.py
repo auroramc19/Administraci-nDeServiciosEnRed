@@ -1,5 +1,6 @@
 from pysnmp.hlapi import *
 from fpdf import FPDF
+from datetime import datetime
 
 
 def agregarDispositivo():
@@ -56,7 +57,7 @@ def generarReporte(host, comunidad, puerto, index):
     # sistema operativo
     so = consultaSNMP(comunidad, host, puerto, MIB + '.1.1.0')
     if so.find('Windows') >= 0:
-        so = "Windows"
+        so = so.split("Software: ")[1]
     elif so.find('Linux') >= 0:
         so = "Linux"
 
@@ -118,6 +119,10 @@ def generarPDF(info, index):
     pdf.ln(10)
     pdf.cell(80)
     pdf.cell(30, 10, 'Práctica 1: Adquisición de información usando SNMP', 0, 0, 'C')
+    pdf.ln(10)
+    pdf.cell(80)
+    pdf.set_font('Arial', 'B', 12)
+    pdf.cell(30, 10, 'Aurora Méndez Castañeda Boleta: 2020630290 Grupo: 4CM13', 0, 0, 'C')
     pdf.ln(20)
 
     ##body
@@ -129,7 +134,10 @@ def generarPDF(info, index):
     elif info[0].find('Linux') > 0:
         pdf.image('linux.png', 170, 40, 33)
 
-    nombre = 'Dispositivo' + str(index) + '.pdf'
+    fecha = str(datetime.now()).split(" ")[0]
+    hora = str(datetime.now()).split(" ")[1].split(".")[0].replace(':', '\'')
+
+    nombre = 'Dispositivo' + str(index) + '-' + fecha + 'T' + hora + '.pdf'
     pdf.output(nombre, 'F')
 
     print("Archivo PDF generado correctamente")
