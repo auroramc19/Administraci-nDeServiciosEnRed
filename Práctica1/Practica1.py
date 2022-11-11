@@ -81,7 +81,8 @@ def generarReporte(host, comunidad, puerto, index):
 
     for i in range(1, int(numInt) + 1):
         nombre = consultaSNMP(comunidad, host, puerto, MIB + '.2.2.1.2.' + str(i))
-        status = consultaSNMP(comunidad, host, puerto, MIB + '.2.2.1.7.' + str(i))
+        status = int(consultaSNMP(comunidad, host, puerto, MIB + '.2.2.1.7.' + str(i)))
+
         info.append("Interfaz " + str(i) + ": " + nombre + " Estatus: " +
             ("up" if status == 1 else "down" if status == 2 else "testing"))
         if i > 4:

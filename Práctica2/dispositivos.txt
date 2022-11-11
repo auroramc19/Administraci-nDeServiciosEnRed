@@ -1,0 +1,5 @@
+localhost, AuroraMendezCastañeda, 161
+192.168.1.90, comunidadASRLub, 161
+192.168.43.44, gerardo, 161
+192.168.1.90, comunidadASRLub, 161
+192.168.1.68, comunidadASRLub, 161
