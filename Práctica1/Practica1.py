@@ -85,7 +85,7 @@ def generarReporte(host, comunidad, puerto, index):
 
         info.append("Interfaz " + str(i) + ": " + nombre + " Estatus: " +
             ("up" if status == 1 else "down" if status == 2 else "testing"))
-        if i > 4:
+        if i > 8:
             break
 
     print(*info, sep="\n")

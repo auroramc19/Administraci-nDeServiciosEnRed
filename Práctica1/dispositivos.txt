@@ -1,4 +1,4 @@
-localhost, comunidadASRWin, 161
-192.168.1.75, comunidadASRLub, 161
 192.168.43.44, gerardo, 161
 192.168.43.123, XeniaMartinez, 161
+192.168.1.85, AuroraMendez, 161
+192.168.1.64, comunidadASRLub, 161
